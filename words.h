@@ -132,6 +132,8 @@ remove_word(
     if (index > words->used)
         return;
 
+    free(words->words[index]);
+
     for (int i = index; i < words->used; i++) {
 
         words->words[i] = words->words[i + 1];
