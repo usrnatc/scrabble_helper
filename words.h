@@ -112,7 +112,7 @@ free_words(words_t *words)
 
     if (words->size != 0) {
 
-        for (int i = 0; i < words->size; i++) {
+        for (int i = 0; i < words->used; i++) {
 
             free(words->words[i]);
         }
@@ -137,12 +137,12 @@ remove_word(
     words_t *words,
     int      index
 ) {
-    if (index > words->used)
+    if (index < 0 || index > words->used)
         return;
 
     free(words->words[index]);
 
-    for (int i = index; i < words->used; i++) {
+    for (int i = index; i < words->used - 1; i++) {
 
         words->words[i] = words->words[i + 1];
     }
