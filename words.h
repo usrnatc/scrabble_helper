@@ -77,9 +77,6 @@ new_words(size_t initial_size)
     words->size = initial_size;
     words->used = 0;
 
-    if (!words->size)
-        goto exit;
-
     words->words = malloc(words->size * sizeof(*words->words));
     if (!words->words) {
 
