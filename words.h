@@ -110,13 +110,21 @@ exit:
 void
 free_words(words_t *words)
 {
-    for (int i = 0; i < words->size; i++) {
+    if (!words)
+        return;
 
-        free(words->words[i]);
+    if (words->size != 0) {
+
+        for (int i = 0; i < words->size; i++) {
+
+            free(words->words[i]);
+        }
+        free(words->words);
+
+        words->size = 0;
     }
-    free(words->words);
     words->words = NULL;
-    words->used = words->size = 0;
+    words->used = 0;
     free(words);
     words = NULL;
 }
