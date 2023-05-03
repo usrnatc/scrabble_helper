@@ -267,7 +267,6 @@ generate_context(
      * letters and the dictionary path provided                             */
     if (argc < 1 || argc > 2) {
 
-        free(context->jumbled_letters);
         free(context);
         err_and_exit(ERR_USAGE_CODE, ERR_USAGE_MSG, __LINE__);
     }
