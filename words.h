@@ -30,6 +30,9 @@ insert_word(
     words_t *words, 
     char    *word
 ) {
+    if (!words || !word)
+        return;
+
     if (words->used == words->size) {
         
         char **tmp_words;
