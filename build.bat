@@ -56,6 +56,6 @@ popd
 
 if not %LastError% == 0 goto :end
 
-.\build\sch.exe "zjl" -r
+.\build\sch.exe -h
 
 :end
